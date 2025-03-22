@@ -44,7 +44,15 @@ const summaryApi = {
     verifyEmail : {
         url : `/api/user/verify-email`,
         method : "POST"
+    },
+    uploadAvatar:{
+        url : `/api/user/update-avatar`,
+        method : "PUT"
+    },
+    updateUserDetails : {
+        url : `/api/user/update-user`,
+        method : "PUT"
     }
- }
+ }  
 
 export default summaryApi;

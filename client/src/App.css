@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+body{
+        font-family: 'Roboto', sans-serif;
+        background-color: #EFF6FF; /* add missing semicolon */
+    
+}

@@ -8,6 +8,7 @@ import AxiosToastError from '../utils/AxiosToastError'
 import { setUserDetails } from '../store/userSlice'
 import { useEffect } from 'react'
 import fetchUserDetails from '../utils/fetchUserDetails'
+import { toast } from 'react-hot-toast'
 
 
 
@@ -61,6 +62,7 @@ const Profile = () => {
             }
 
         } catch (error) {
+            console.log("error in handle submit",error)
             AxiosToastError(error)
         } finally{
             setLoading(false)

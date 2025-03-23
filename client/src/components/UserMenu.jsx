@@ -56,8 +56,38 @@ const UserMenu = ({ close }) => {
           />
         </Link>
       </div>
+
       <Divider />
+
       <div className="grid grid-2 text-sm gap-2 ">
+      <Link
+          onClick={handleClose}
+          to={"/dashboard/category"}
+          className="px-2 p-1 hover:bg-yellow-200"
+        >
+          Category
+        </Link>
+        <Link
+          onClick={handleClose}
+          to={"/dashboard/subcategory"}
+          className="px-2 p-1 hover:bg-yellow-200"
+        >
+          Sub Category
+        </Link>
+        <Link
+          onClick={handleClose}
+          to={"/dashboard/upload-product"}
+          className="px-2 p-1 hover:bg-yellow-200"
+        >
+          Upload Product
+        </Link>
+        <Link
+          onClick={handleClose}
+          to={"/dashboard/product"}
+          className="px-2 p-1 hover:bg-yellow-200"
+        >
+          Product
+        </Link>
         <Link
           onClick={handleClose}
           to={"/dashboard/myorders"}

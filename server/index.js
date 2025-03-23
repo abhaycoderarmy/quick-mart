@@ -7,6 +7,8 @@ import helmet from 'helmet';
 import cookieParser from 'cookie-parser';
 import connectDB from './config/connectDB.js';
 import userRouter from './routes/user.route.js';
+import categoryRouter from './routes/category.route.js';
+import uploadRouter from './routes/upload.route.js';
 
 
 dotenv.config();
@@ -35,6 +37,8 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api/user', userRouter);
+app.use('/api/category', categoryRouter);
+app.use('/api/file', uploadRouter);
 
 connectDB();
 

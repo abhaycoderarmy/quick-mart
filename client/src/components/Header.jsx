@@ -7,9 +7,9 @@ import useMobile from "../hooks/useMobile";
 import { BsCart4 } from "react-icons/bs";
 import { useSelector } from "react-redux";
 import { GoTriangleDown, GoTriangleUp } from "react-icons/go";
-import UserMenu from "./userMenu";
+import UserMenu from "./UserMenu";
 
-const Header = () => {
+function Header() {
   const [openUserMenu, setOpenUserMenu] = useState(false);
 
   const [isMobile] = useMobile();
@@ -28,17 +28,8 @@ const Header = () => {
     navigate("/login");
   };
 
-   const redirectToLoginPageForMobile = () => {
-      if(!user?._id){
-         navigate("/login");
-         return;
-      }
-
-      navigate("/userMenuMobile");
-   }
-
   return (
-    <header className="h-24 py-2 lg:h-20 shadow-md sticky top-0 flex flex-col items-center justify-center gap-1 bg-white">
+    <header className="h-24 py-2 lg:h-20 shadow-md sticky top-0 z-40 flex flex-col items-center justify-center gap-1 bg-white">
       {!(isMobile && isSearchPage) && (
         <div className="container mx-auto flex items-center justify-between px-2">
           <div className="h-full">
@@ -66,7 +57,7 @@ const Header = () => {
 
           <div>
             {/* this for mobile view */}
-            <button className="text-neutral-500 hover:text-neutral-700 lg:hidden" onClick={redirectToLoginPageForMobile}>
+            <button className="text-neutral-500 hover:text-neutral-700 lg:hidden">
               <FaRegCircleUser size={30} />
             </button>
 

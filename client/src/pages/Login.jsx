@@ -10,7 +10,7 @@ import fetchUserDetails from "../utils/fetchUserDetails";
 import { useDispatch } from "react-redux";
 import { setUserDetails } from "../store/userSlice";
 
-const Login = () => {
+function Login() {
   const [data, setData] = useState({
     email: "",
     password: "",
@@ -51,7 +51,7 @@ const Login = () => {
         localStorage.setItem("RefreshToken", response.data.data.refreshToken);
 
         const userDetail = await fetchUserDetails();
-        dispatch(setUserDetails(userDetail.data));
+        dispatch(setUserDetails(userDetail));
 
         toast.success("User Logged in successfully");
         setData({

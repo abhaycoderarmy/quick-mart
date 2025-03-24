@@ -181,7 +181,7 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
 
                     <button
                         className={`px-4 py-2 border
-                            ${subCategoryData?.name && subCategoryData?.image && subCategoryData?.category[0] ? " bg-green-500  " : "bg-green-500 text-white hover:bg-yellow-500"}    
+                            ${subCategoryData?.name && subCategoryData?.image && subCategoryData?.category[0] ? "bg-green-500 hover:bg-yellow-400  rounder border " : "bg-green-500 text-white cursor-pointer" }    
                             font-semibold
                         `}
                     >

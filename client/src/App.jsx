@@ -7,17 +7,21 @@ import fetchUserDetails from "./utils/fetchUserDetails";
 import { useEffect } from "react";
 import { setUserDetails } from "./store/userSlice";
 import { useDispatch } from "react-redux";
+import Axios from "./utils/Axios";
+import summaryApi from "./common/summaryApi";
+import { setAllCategory, setLoadingCategory } from "./store/productSlice";
+
 
 function App() {
 
-     const despatch = useDispatch();
+     const dispatch = useDispatch();
 
      useEffect(() => { 
           const fetchUser = async () => {
               try {
                
                   const userInfo = await fetchUserDetails();
-                  despatch(setUserDetails(userInfo.data));
+                  dispatch(setUserDetails(userInfo.data));
 
               } catch (error) {
                   console.log("Error in fetchUser", error);
@@ -26,6 +30,28 @@ function App() {
       
           fetchUser();
       }, []);
+
+      const fetchCategory = async()=>{
+        try {
+            dispatch(setLoadingCategory(true))
+            const response = await Axios({
+                ...summaryApi.getCategory
+            })
+            const { data : responseData } = response
+    
+            if(responseData.success){
+               dispatch(setAllCategory(responseData.data.sort((a, b) => a.name.localeCompare(b.name)))) 
+            }
+        } catch (error) {
+            
+        }finally{
+          dispatch(setLoadingCategory(false))
+        }
+      }
+      
+    useEffect(() => {
+    fetchCategory()
+    }, [])
 
      return( <>
           <Header />

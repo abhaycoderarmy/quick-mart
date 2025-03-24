@@ -51,7 +51,7 @@ function Login() {
         localStorage.setItem("RefreshToken", response.data.data.refreshToken);
 
         const userDetail = await fetchUserDetails();
-        dispatch(setUserDetails(userDetail));
+        dispatch(setUserDetails(userDetail.data));
 
         toast.success("User Logged in successfully");
         setData({

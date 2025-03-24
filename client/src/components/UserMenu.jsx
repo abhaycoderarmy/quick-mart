@@ -8,6 +8,7 @@ import { logout } from "../store/userSlice";
 import toast from "react-hot-toast";
 import AxiosToastError from "../utils/AxiosToastError";
 import { HiOutlineExternalLink } from "react-icons/hi";
+import isAdmin from "../utils/isAdmin";
 // import isAdmin from '../utils/isAdmin'
 
 const UserMenu = ({ close }) => {
@@ -47,7 +48,7 @@ const UserMenu = ({ close }) => {
       <div className="font-semibold ml-2"> My Account </div>
       <div className="text-sm mt-1 ml-2 flex items-center">
         <span className="max-w-52 text-ellipsis line-clamp-1">
-          {user?.name || user?.email}
+          {user?.name || user?.email} <span className="text-red-500 font-md">{isAdmin(user?.role) && "(Admin)"}</span>
         </span>
         <Link onClick={handleClose} to={"/dashboard/profile"}>
           <HiOutlineExternalLink
@@ -60,34 +61,42 @@ const UserMenu = ({ close }) => {
       <Divider />
 
       <div className="grid grid-2 text-sm gap-2 ">
-      <Link
-          onClick={handleClose}
-          to={"/dashboard/category"}
-          className="px-2 p-1 hover:bg-yellow-200"
-        >
-          Category
-        </Link>
-        <Link
-          onClick={handleClose}
-          to={"/dashboard/subcategory"}
-          className="px-2 p-1 hover:bg-yellow-200"
-        >
-          Sub Category
-        </Link>
-        <Link
-          onClick={handleClose}
-          to={"/dashboard/upload-product"}
-          className="px-2 p-1 hover:bg-yellow-200"
-        >
-          Upload Product
-        </Link>
-        <Link
-          onClick={handleClose}
-          to={"/dashboard/product"}
-          className="px-2 p-1 hover:bg-yellow-200"
-        >
-          Product
-        </Link>
+        {isAdmin(user?.role) && (
+          <Link
+            onClick={handleClose}
+            to={"/dashboard/category"}
+            className="px-2 p-1 hover:bg-yellow-200"
+          >
+            Category
+          </Link>
+        )}
+        {isAdmin(user?.role) && (
+          <Link
+            onClick={handleClose}
+            to={"/dashboard/subcategory"}
+            className="px-2 p-1 hover:bg-yellow-200"
+          >
+            Sub Category
+          </Link>
+        )}
+        {isAdmin(user?.role) && (
+          <Link
+            onClick={handleClose}
+            to={"/dashboard/upload-product"}
+            className="px-2 p-1 hover:bg-yellow-200"
+          >
+            Upload Product
+          </Link>
+        )}
+        {isAdmin(user?.role) && (
+          <Link
+            onClick={handleClose}
+            to={"/dashboard/product"}
+            className="px-2 p-1 hover:bg-yellow-200"
+          >
+            Product
+          </Link>
+        )}
         <Link
           onClick={handleClose}
           to={"/dashboard/myorders"}

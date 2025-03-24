@@ -1,7 +1,7 @@
 import React, { useState } from 'react'
 import { IoClose } from "react-icons/io5";
 import uploadImage from '../utils/uploadImage';
-import { useSelector } from 'react-redux';
+import {  useSelector } from 'react-redux';
 import Axios from '../utils/Axios';
 import SummaryApi from '../common/summaryApi';
 import toast from 'react-hot-toast';
@@ -16,6 +16,7 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
     })
 
     const allCategory = useSelector(state => state.product.allCategory)
+   
 
     const handleChange = (e)=>{
         const { name, value} = e.target 
@@ -66,9 +67,10 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
             })
 
             const { data : responseData } = response
-
+            
             console.log("responseData",responseData)
             if(responseData.success){
+
                 toast.success(responseData.message)
                 if(close){
                     close()
@@ -139,15 +141,15 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
                             {/*display value**/}
                             <div className='flex flex-wrap gap-2'>
                                 {
-                                    subCategoryData.category.map((cat,index)=>{
-                                        return(
-                                            <p key={cat._id+"selectedValue"} className='bg-white shadow-md px-1 m-1 flex items-center gap-2'>
+                                    subCategoryData.category.map((cat, index) => {
+                                        return (
+                                            <p key={cat._id + "selectedValue"} className='bg-white shadow-md px-1 m-1 flex items-center gap-2'>
                                                 {cat.name}
                                                 <div className='cursor-pointer hover:text-red-600' onClick={()=>handleRemoveCategorySelected(cat._id)}>
                                                     <IoClose size={20}/>
                                                 </div>
                                             </p>
-                                        )
+                                        );
                                     })
                                 }
                             </div>
@@ -169,10 +171,10 @@ const UploadSubCategoryModel = ({close, fetchData}) => {
                             >
                                 <option value={""}>Select Category</option>
                                 {
-                                    allCategory.map((category,index)=>{
-                                        return(
-                                            <option value={category?._id} key={category._id+"subcategory"}>{category?.name}</option>
-                                        )
+                                    allCategory.map((category, index) => {
+                                        return (
+                                            <option key={category?._id + "subcategory"} value={category?._id}>{category?.name}</option>
+                                        );
                                     })
                                 }
                             </select>

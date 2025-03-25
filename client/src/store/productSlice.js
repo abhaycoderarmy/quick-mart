@@ -1,4 +1,5 @@
 import { createSlice } from "@reduxjs/toolkit";
+import { set } from "mongoose";
 
 const initialValue = {
     allCategory : [],
@@ -19,11 +20,11 @@ const productSlice = createSlice({
         },
         setAllSubCategory : (state,action)=>{
             state.allSubCategory = [...action.payload]
-        },
+        }
         
     }
 })
 
-export const  { setAllCategory,setAllSubCategory,setLoadingCategory } = productSlice.actions
+export const  { setAllCategory,setAllSubCategory,setLoadingCategory} = productSlice.actions
 
 export default productSlice.reducer

@@ -17,7 +17,7 @@ productRouter.put('/update-product-details',auth,admin,updateProductDetails)
 //delete product
 productRouter.delete('/delete-product',auth,admin,deleteProductDetails)
 
-//search product 
-productRouter.post('/search-product',searchProduct)
+// search product 
+productRouter.post('/search-product', searchProduct)
 
 export default productRouter

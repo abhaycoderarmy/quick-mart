@@ -1,3 +1,5 @@
+import { searchProduct } from "../../../server/controllers/product.controller";
+
 export const baseURL = "http://localhost:5000";
 
 const summaryApi = {
@@ -107,6 +109,18 @@ const summaryApi = {
     },
     getProductDetails : {
         url : `/api/product/get-product-details`,
+        method : "POST"
+    },
+    updateProduct : {
+        url : `/api/product/update-product-details`,
+        method : "PUT"
+    },
+    deleteProduct : {
+        url : `/api/product/delete-product`,
+        method : "DELETE"
+    },
+    searchProduct : {
+        url : `/api/product/search-product`,
         method : "POST"
     }
 

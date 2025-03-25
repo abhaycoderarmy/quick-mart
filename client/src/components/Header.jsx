@@ -1,4 +1,4 @@
-import React, { use, useState } from "react";
+import React, { useState } from "react";
 import logo from "../assets/logo.png";
 import Search from "./Search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -57,9 +57,17 @@ function Header() {
 
           <div>
             {/* this for mobile view */}
-            <button className="text-neutral-500 hover:text-neutral-700 lg:hidden">
+            <button 
+              className="text-neutral-500 hover:text-neutral-700 lg:hidden" 
+              onClick={() => setOpenUserMenu(prev => !prev)}
+            >
               <FaRegCircleUser size={30} />
             </button>
+            {isMobile && openUserMenu && (
+              <div className="absolute right-0 top-10 bg-white shadow-md rounded p-4 min-w-52">
+                <UserMenu close={handleCloseUserMenu} />
+              </div>
+            )}
 
             {/* this for desktop view */}
             <div className="hidden lg:flex items-center gap-10 cursor-pointer">

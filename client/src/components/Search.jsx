@@ -31,15 +31,15 @@ const Search = () => {
     }
 
   return (
-    <div className='w-full  min-w-[300px] lg:min-w-[420px] h-11 lg:h-12 rounded-lg border overflow-hidden flex items-center text-neutral-500 bg-slate-50 group focus-within:border-primary-200 '>
+    <div className='w-full  min-w-[300px] lg:min-w-[420px] h-11 lg:h-12 rounded-lg border-1 overflow-hidden flex items-center  text-neutral-500 bg-slate-50 group focus-within:border-yellow-400 '>
         <div>
             {
                 (isMobile && isSearchPage ) ? (
-                    <Link to={"/"} className='flex justify-center items-center h-full p-2 m-1 group-focus-within:text-primary-200 bg-white rounded-full shadow-md'>
+                    <Link to={"/"} className='flex justify-center items-center h-full p-2 m-1 hover:border-amber-400 group-focus-within:text-yellow-200 bg-white rounded-full shadow-md'>
                         <FaArrowLeft size={20}/>
                     </Link>
                 ) :(
-                    <button className='flex justify-center items-center h-full p-3 group-focus-within:text-primary-200'>
+                    <button className='flex justify-center items-center h-full p-3 group-focus-within:text-yellow-200'>
                         <IoSearch size={22}/>
                     </button>
                 )

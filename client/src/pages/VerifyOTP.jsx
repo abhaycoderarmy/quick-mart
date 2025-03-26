@@ -46,7 +46,7 @@ const VerifyOTP = () => {
         });
       }
     } catch (error) {
-      console.log("error", error);
+  
       AxiosToastError(error);
     }
   };
@@ -72,7 +72,6 @@ const VerifyOTP = () => {
                     value={data[index]}
                     onChange={(e) => {
                       const value = e.target.value;
-                      console.log("value", value);
 
                       const newData = [...data];
                       newData[index] = value;

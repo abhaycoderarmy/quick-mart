@@ -50,7 +50,7 @@ const ForgotPassword = ()=> {
             }
 
         } catch (error) {
-            console.log(error)
+       
             AxiosToastError(error)
         }
 

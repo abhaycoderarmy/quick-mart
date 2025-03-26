@@ -59,7 +59,6 @@ const UploadCategory = ({close, fetchData}) => {
 
         const response = await uploadImage(file)
 
-        console.log("response",response)
         const { data : ImageResponse } = response
 
         setData((preve)=>{

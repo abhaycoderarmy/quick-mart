@@ -18,6 +18,9 @@ import UploadProduct from "../pages/UploadProduct.jsx";
 import Product from "../pages/Product.jsx";
 import AdminPermision from "../layout/AdminPermission.jsx";
 import ProductAdmin from "../pages/ProductAdmin.jsx";
+import ProductListPage from "../pages/ProductListPage.jsx";
+import ProductDisplayPage from "../pages/ProductDisplayPage.jsx";
+import CartMobile from "../pages/CartMobile.jsx";
 
 const router = createBrowserRouter([
     {
@@ -89,6 +92,23 @@ const router = createBrowserRouter([
                     element:  <AdminPermision> <ProductAdmin/>  </AdminPermision>
                 }
              ]     
+            },
+            {
+               path:":category",
+               children : [
+                {
+                    path:":subCategory",
+                    element:<ProductListPage/>
+                }
+               ]
+            },
+            {
+                path:"product/:product",
+                element: <ProductDisplayPage/>
+            },
+            {
+                path:"cart",
+                element: <CartMobile/>
             }
         ]
     }

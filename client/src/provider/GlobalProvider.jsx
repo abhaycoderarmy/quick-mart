@@ -6,8 +6,8 @@ import { handleAddItemCart } from "../store/cartProduct";
 import AxiosToastError from "../utils/AxiosToastError";
 import toast from "react-hot-toast";
 import { pricewithDiscount } from "../utils/PriceWithDiscount";
-// import { handleAddAddress } from "../store/addressSlice";
-// import { setOrder } from "../store/orderSlice";
+import { handleAddAddress } from "../store/addressSlice";
+import { setOrder } from "../store/orderSlice";
 
 export const GlobalContext = createContext(null)
 

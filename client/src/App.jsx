@@ -1,9 +1,9 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useLocation } from "react-router-dom";
 import Header from "./components/Header";
 import Footer from "./components/Footer";
 import "./App.css";
 import "./index.css";
-import toast, { Toaster } from "react-hot-toast";
+import { Toaster } from "react-hot-toast";
 import fetchUserDetails from "./utils/fetchUserDetails";
 import { useEffect } from "react";
 import { setUserDetails } from "./store/userSlice";
@@ -16,6 +16,7 @@ import CartMobileLink from "./components/CartMobile";
 
 function App() {
   const dispatch = useDispatch();
+  const location = useLocation();
 
   useEffect(() => {
     const fetchUser = async () => {

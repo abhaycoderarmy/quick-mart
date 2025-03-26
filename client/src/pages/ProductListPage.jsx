@@ -70,8 +70,8 @@ const ProductListPage = () => {
   }, [params, AllSubCategory]);
 
   return (
-    <section className='container mx-auto flex gap-4 py-8'>
-      <div className='w-72 min-h-screen bg-white shadow-lg p-4 overflow-y-auto'>
+    <section className='container mx-auto flex gap-4 py-4'>
+      <div className='w-75 min-h-screen bg-white shadow-lg p-4 overflow-y-auto'>
         {/** Subcategory Sidebar **/}
         {DisplaySubCategory.map((s, index) => {
           const link = `/${valideURLConvert(s?.category[0]?.name)}-${s?.category[0]?._id}/${valideURLConvert(s.name)}-${s._id}`;

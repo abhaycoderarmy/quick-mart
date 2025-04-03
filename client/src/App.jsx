@@ -24,7 +24,7 @@ function App() {
         const userInfo = await fetchUserDetails();
         dispatch(setUserDetails(userInfo.data));
       } catch (error) {
-        console.log("Error in fetchUser in App", error);
+        console.log("Error in fetchUser in App component", error);
       }
     };
 

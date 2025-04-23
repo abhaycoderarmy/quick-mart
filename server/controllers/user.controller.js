@@ -159,6 +159,7 @@ export const loginUserController = async (req, res) => {
             sameSite: 'None',
             secure: true
         }
+
         res.cookie('accessToken', accessToken, cookieOptions);
         res.cookie('refreshToken', refreshToken, cookieOptions);
 
@@ -255,7 +256,7 @@ export const logoutUserController = async (req, res) => {
 export const uploadAvatarController = async (req, res) => {
     try {
        
-        const userId = req.userId; // coming from auth middleware
+       const userId = req.userId; // coming from auth middleware
 
        const image = req.file; // coming from multer middleware
 
@@ -384,6 +385,7 @@ export const verifyForgotPasswordOtpController = async (req, res) => {
         }
 
         const user = await UserModel.findOne({ email });
+
         if (!user) {
             return res.status(400).json({ 
                 message: 'Email not found!',
@@ -484,8 +486,11 @@ export const resetPasswordController = async (req, res) => {
 
 export const refreshTokenController = async (req, res) => {
     try {
-          const refreshToken = req.cookies.refreshToken || req.header?.authorization?.split(" ")[1];
+
+    const refreshToken = req.cookies.refreshToken || req.header?.authorization?.split(" ")[1];
+
           console.log(refreshToken);
+
             if(!refreshToken){
                 return res.status(400).json({
                     message : "Please provide refresh token",
@@ -494,7 +499,7 @@ export const refreshTokenController = async (req, res) => {
                 })
             }
         
-            const verifyToken = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET_KEY);
+        const verifyToken = await jwt.verify(refreshToken, process.env.REFRESH_TOKEN_SECRET_KEY);
 
             if(!verifyToken){
                 return res.status(400).json({

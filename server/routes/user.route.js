@@ -1,6 +1,8 @@
 import { Router } from "express";
 import {  
+    blockUserController,
     forgotPasswordController, 
+    getAllUsersController, 
     getUserDetailsController, 
     loginUserController, 
     logoutUserController,
@@ -14,6 +16,7 @@ import {
 
 import auth from "../middlewares/auth.js";
 import upload from "../middlewares/multer.js";
+import { validUser } from "../middlewares/validUser.js";
 
 const userRouter = Router();
 
@@ -29,5 +32,7 @@ userRouter.put('/reset-password', resetPasswordController);
 userRouter.post('/refresh-token', refreshTokenController);
 userRouter.get('/user-details', auth, getUserDetailsController);
 
+userRouter.get('/getAllUsers', auth, getAllUsersController);
+userRouter.put('/block-user', auth, validUser, blockUserController);
 
 export default userRouter;

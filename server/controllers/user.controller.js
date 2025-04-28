@@ -541,3 +541,54 @@ export const refreshTokenController = async (req, res) => {
         });
     }
 }
+
+export const getAllUsersController = async (req, res) => {
+    try {
+        const users = await UserModel.find({}).select('-password -refresh_token');
+        return res.status(200).json({
+            message : "All users fetched successfully",
+            error : false,
+            success : true,
+            data : users
+        })
+    } catch (error) {
+        console.log("error in getAllUsersController") ;
+        return res.status(500).json({
+            message : error.message || error,
+            error : true,
+            success : false
+        })
+    }
+}
+
+export const blockUserController = async (req, res, next) => {
+    try {
+        const userId = req.userId; // from middleware
+        const user = await UserModel.findById(userId);
+        if (!user) {
+            return res.status(404).json({
+                message: 'User not found',
+                error: true,
+                success: false,
+            });
+        }
+        
+    const updatedUser = await UserModel.findByIdAndUpdate(userId, 
+        { status: 'Suspended'}, 
+        { new: true });
+        
+        if(updatedUser){
+            return res.status(200).json({
+                message: 'User blocked successfully',
+                error: false,
+                success: true,
+            });
+        }
+    } catch (error) {
+        return res.status(500).json({
+            message: 'Error in validating user',
+            error: true,
+            success: false,
+        });
+    }
+}

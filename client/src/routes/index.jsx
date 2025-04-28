@@ -24,6 +24,7 @@ import CartMobile from "../pages/CartMobile.jsx";
 import CheckoutPage from "../pages/CheckoutPage.jsx";
 import Success from "../pages/Success.jsx";
 import Cancel from "../pages/Cancel.jsx";
+import Allusers from "../pages/Allusers.jsx";
 
 const router = createBrowserRouter([
     {
@@ -93,6 +94,10 @@ const router = createBrowserRouter([
                 {
                     path:"product",
                     element:  <AdminPermision> <ProductAdmin/>  </AdminPermision>
+                },
+                {
+                    path:"getAllUsers",
+                    element: <AdminPermision> <Allusers/> </AdminPermision>
                 }
              ]     
             },
@@ -125,6 +130,7 @@ const router = createBrowserRouter([
                 path:"cancel",
                 element: <Cancel/>
             }
+           
         ]
     }
 ]);

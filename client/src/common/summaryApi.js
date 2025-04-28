@@ -164,6 +164,10 @@ const summaryApi = {
     getOrderItems : {
         url : '/api/order/order-list',
         method : 'get'
+    },
+    allUsers :{
+        url : '/api/user/getAllUsers',
+        method : 'get'
     }
  }  
 

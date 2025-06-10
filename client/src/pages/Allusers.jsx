@@ -74,7 +74,11 @@ const Allusers = () => {
                 ) : (
                   <FaTimesCircle className="text-red-600" />
                 )}
-                <span className={user.status === "active" ? "text-green-600" : "text-red-600"}>
+                <span
+                  className={
+                    user.status === "active" ? "text-green-600" : "text-red-600"
+                  }
+                >
                   {user.status}
                 </span>
               </div>

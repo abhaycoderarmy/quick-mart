@@ -33,7 +33,9 @@ export const registerUserController = async (req, res) => {
             });
         }
 
-        const salt = await bcrypt.genSalt(10);
+        const salt = await bcrypt.genSalt(10); 
+//Salt is a random value added to the password before hashing to make it more secure. 10 is the number of rounds to generate the salt, higher the number more secure it is but also more time consuming.
+
         const hashedPassword = await bcrypt.hash(password, salt);
 
         const payload = {
@@ -54,6 +56,14 @@ export const registerUserController = async (req, res) => {
                 url: verifyEmailUrl
             })
         );
+
+        if (!verificationEmail) {
+            return res.status(500).json({ 
+                message: 'Error sending verification email',
+                error : true,
+                success : false
+            });
+        }
 
         return res.status(200).json({   
             message : "User created successfully, Please verify your email",
@@ -113,7 +123,7 @@ export const loginUserController = async (req, res) => {
 
         if (!email || !password) {
             return res.status(400).json({ 
-                message: 'Please Fill All Fields',
+                message: 'Please fill all fields',
                 error : true,
                 success : false
             });
@@ -155,9 +165,9 @@ export const loginUserController = async (req, res) => {
         );
 
         const cookieOptions = {
-            httpOnly: true,
-            sameSite: 'None',
-            secure: true
+            httpOnly: true, // This means the cookie cannot be accessed via JavaScript from the browser
+            sameSite: 'None', // This allows the cookie to be sent with cross-site requests 
+            secure: true // This means the cookie will only be sent over HTTPS connections
         }
 
         res.cookie('accessToken', accessToken, cookieOptions);
@@ -273,8 +283,7 @@ export const uploadAvatarController = async (req, res) => {
                 avatar : upload.url
             }
         }); 
-
-        
+   
     } catch (error) {
         res.status(500).json({
              message: error.message || error, 
@@ -311,7 +320,6 @@ export const updateUserDetailsController = async (req, res) => {
             data : updateUser
         })
 
-
     } catch (error) {
         console.log("error in updateUserDetailsController") ;
         return res.status(500).json({
@@ -343,8 +351,7 @@ export const forgotPasswordController = async (req, res) => {
             forgot_password_otp : otp,
             forgot_password_expiry : new Date(expireTime).toISOString()
         })
-         console.log(updatedUser);
-
+         
         const forgetpassEmail = await sendEmail(
             email,
             "OTP for forget password of Blinkit",
@@ -434,8 +441,7 @@ export const verifyForgotPasswordOtpController = async (req, res) => {
 }
 
 export const resetPasswordController = async (req, res) => {
-    try {
-              
+    try {     
             const { email, newPassword, confirmPassword } = req.body;
             if (!email || !newPassword || !confirmPassword) {
                 return res.status(400).json({ 

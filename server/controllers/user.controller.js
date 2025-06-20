@@ -50,7 +50,7 @@ export const registerUserController = async (req, res) => {
 
         const verificationEmail = await sendEmail(
             email,
-            'For Blinkit Account Verification',
+            'For QuickMart Account Verification',
             verifyEmailTemplate({
                 name,
                 url: verifyEmailUrl
@@ -354,7 +354,7 @@ export const forgotPasswordController = async (req, res) => {
          
         const forgetpassEmail = await sendEmail(
             email,
-            "OTP for forget password of Blinkit",
+            "OTP for forget password of QuickMart",
             forgotPasswordTemplate({
                 name: user.name,
                 otp: otp

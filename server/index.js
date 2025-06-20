@@ -38,7 +38,7 @@ app.use(cookieParser());
 const PORT = process.env.PORT || 8080;
 
 app.get('/', (req, res) => {
-    res.send('An Binkeyit Web is running');
+    res.send('An QuickMart Web is running');
 });
 
 app.use('/api/user', userRouter);

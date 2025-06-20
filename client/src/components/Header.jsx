@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import logo from "../assets/logo.png";
+import logo2 from "../assets/logo2.png";
 import Search from "./Search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
 import { FaRegCircleUser } from "react-icons/fa6";
@@ -19,7 +20,7 @@ const Header = () => {
   const [isMobile] = useMobile();
   const location = useLocation();
   const navigate = useNavigate();
-  
+
   const user = useSelector((state) => state?.user);
   const cartItem = useSelector((state) => state.cartItem.cart);
   const { totalPrice, totalQty } = useGlobalContext();
@@ -39,21 +40,22 @@ const Header = () => {
   };
 
   return (
-    <header className="h-24 py-2 lg:h-20 shadow-md sticky top-0 z-40 flex flex-col items-center justify-center gap-1 bg-white">
+    <header className="h-24 py-2 lg:h-20 shadow-md sticky top-0 z-40 flex flex-col 
+    items-center justify-center gap-1 bg-white">
       {!(isMobile && isSearchPage) && (
         <div className="container mx-auto flex items-center justify-between px-2">
           <div className="h-full">
             <Link to={"/"} className="h-full flex justify-center items-center">
               <img
                 className="hidden lg:block"
-                src={logo}
+                src={logo2}
                 width={170}
                 height={60}
                 alt="logo"
               />
               <img
                 className="lg:hidden"
-                src={logo}
+                src={logo2}
                 width={120}
                 height={60}
                 alt="logo"
@@ -66,15 +68,16 @@ const Header = () => {
           </div>
 
           <div>
-            <button 
-              className="text-neutral-500 hover:text-neutral-700 lg:hidden" 
+            <button
+              className="text-neutral-500 hover:text-neutral-700 lg:hidden"
               onClick={handleMobileUser}
             >
               <FaRegCircleUser size={30} />
             </button>
 
             {isMobile && openUserMenu && (
-              <div className="absolute right-0 top-10 bg-white shadow-md rounded p-4 min-w-52">
+              <div className="absolute right-0 top-10 bg-white shadow-md rounded p-4
+              min-w-52">
                 <UserMenu close={handleCloseUserMenu} />
               </div>
             )}
@@ -82,24 +85,39 @@ const Header = () => {
             <div className="hidden lg:flex items-center gap-10 cursor-pointer">
               {user?._id ? (
                 <div className="relative">
-                  <div className="flex items-center gap-2 select-none" onClick={() => setOpenUserMenu((prev) => !prev)}>
+                  <div
+                    className="flex items-center gap-2 select-none"
+                    onClick={() => setOpenUserMenu((prev) => !prev)}
+                  >
                     <FaRegCircleUser size={25} />
                     <p className="text-lg">{user?.name}</p>
-                    {openUserMenu ? <GoTriangleUp size={20} /> : <GoTriangleDown size={20} />}
+                    {openUserMenu ? (
+                      <GoTriangleUp size={20} />
+                    ) : (
+                      <GoTriangleDown size={20} />
+                    )}
                   </div>
                   {openUserMenu && (
-                    <div className="absolute right-0 top-10 bg-white shadow-md rounded p-4 min-w-52">
+                    <div className="absolute right-0 top-10 bg-white shadow-md 
+                    rounded p-4 min-w-52">
                       <UserMenu close={handleCloseUserMenu} />
                     </div>
                   )}
                 </div>
               ) : (
-                <button onClick={redirectToLoginPage} className="text-lg px-1 cursor-pointer">
+                <button
+                  onClick={redirectToLoginPage}
+                  className="text-lg px-1 cursor-pointer"
+                >
                   Login
                 </button>
               )}
 
-              <button onClick={() => setOpenCartSection(true)} className="flex items-center gap-2 bg-green-600 hover:bg-green-800 px-4 py-3 rounded-lg text-white">
+              <button
+                onClick={() => setOpenCartSection(true)}
+                className="flex items-center gap-2 bg-green-600 hover:bg-green-800 
+                px-4 py-3 rounded-lg text-white"
+              >
                 <div className="animate-bounce">
                   <BsCart4 size={30} />
                 </div>
@@ -121,7 +139,9 @@ const Header = () => {
       <div className="container mx-auto px-2 lg:hidden">
         <Search />
       </div>
-      {openCartSection && <DisplayCartItem close={() => setOpenCartSection(false)} />}
+      {openCartSection && (
+        <DisplayCartItem close={() => setOpenCartSection(false)} />
+      )}
     </header>
   );
 };

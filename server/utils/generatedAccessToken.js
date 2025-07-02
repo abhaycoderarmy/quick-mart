@@ -11,4 +11,3 @@ const generateAccessToken = async(userId) => {
     }
 
 export default generateAccessToken;
-// Compare this snippet from server/utils/sendEmail.js:

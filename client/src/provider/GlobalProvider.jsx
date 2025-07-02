@@ -14,9 +14,9 @@ export const GlobalContext = createContext(null)
 export const useGlobalContext = ()=> useContext(GlobalContext)
 
 const GlobalProvider = ({children}) => {
-     const dispatch = useDispatch()
-     const [totalPrice,setTotalPrice] = useState(0)
-     const [notDiscountTotalPrice,setNotDiscountTotalPrice] = useState(0)
+    const dispatch = useDispatch()
+    const [totalPrice,setTotalPrice] = useState(0)
+    const [notDiscountTotalPrice,setNotDiscountTotalPrice] = useState(0)
     const [totalQty,setTotalQty] = useState(0)
     const cartItem = useSelector(state => state.cartItem.cart)
     const user = useSelector(state => state?.user)
@@ -82,7 +82,7 @@ const GlobalProvider = ({children}) => {
       setTotalQty(qty)
       
       const tPrice = cartItem.reduce((preve,curr)=>{
-          const priceAfterDiscount = pricewithDiscount(curr?.productId?.price,curr?.productId?.discount)
+          const priceAfterDiscount =       pricewithDiscount(curr?.productId?.price,curr?.productId?.discount)
 
           return preve + (priceAfterDiscount * curr.quantity)
       },0)

@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import logo from "../assets/logo.png";
+import { useState } from "react";
+import logo3 from "../assets/logo3.png";
 import logo2 from "../assets/logo2.png";
 import Search from "./Search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -40,16 +40,16 @@ const Header = () => {
   };
 
   return (
-    <header className="h-24 py-2 lg:h-20 shadow-md sticky top-0 z-40 flex flex-col 
+    <header className="h-24 py-2 lg:h-20 shadow-lg sticky top-0 z-40 flex flex-col 
     items-center justify-center gap-1 bg-white">
       {!(isMobile && isSearchPage) && (
-        <div className="container mx-auto flex items-center justify-between px-2">
+        <div className="container mx-auto  flex items-center justify-between px-2">
           <div className="h-full">
-            <Link to={"/"} className="h-full flex justify-center items-center">
+            <Link to={"/"} className="flex justify-center items-center">
               <img
-                className="hidden lg:block"
-                src={logo2}
-                width={170}
+                className="ml-12 hidden lg:block"
+                src={logo3}
+                width={240}
                 height={60}
                 alt="logo"
               />
@@ -107,7 +107,7 @@ const Header = () => {
               ) : (
                 <button
                   onClick={redirectToLoginPage}
-                  className="text-lg px-1 cursor-pointer"
+                  className="text-lg px-2 cursor-pointer"
                 >
                   Login
                 </button>
@@ -116,7 +116,7 @@ const Header = () => {
               <button
                 onClick={() => setOpenCartSection(true)}
                 className="flex items-center gap-2 bg-green-600 hover:bg-green-800 
-                px-4 py-3 rounded-lg text-white"
+                px-3 py-3 rounded-lg text-white mr-6"
               >
                 <div className="animate-bounce">
                   <BsCart4 size={30} />

@@ -18,4 +18,3 @@ const generateRefreshToken = async(userId) => {
  }
 
 export default generateRefreshToken;
-// Compare this snippet from server/utils/sendEmail.js:

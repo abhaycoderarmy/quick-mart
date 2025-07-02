@@ -39,7 +39,7 @@ export const AddSubCategoryController = async(request,response)=>{
 
 export const getSubCategoryController = async(request,response)=>{
     try {
-        const data = await SubCategoryModel.find().sort({createdAt : -1}).populate('category')
+        const data = await SubCategoryModel.find().sort({createdAt:-1}).populate('category')
         return response.json({
             message : "Sub Category data fetched successfully",
             data : data,
@@ -94,7 +94,6 @@ export const updateSubCategoryController = async(request,response)=>{
 export const deleteSubCategoryController = async(request,response)=>{
     try {
         const { _id } = request.body 
-        console.log("Id",_id)
         const deleteSub = await SubCategoryModel.findByIdAndDelete(_id)
 
         return response.json({

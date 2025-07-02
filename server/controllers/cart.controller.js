@@ -3,8 +3,8 @@ import UserModel from "../models/user.model.js";
 
 export const addToCartItemController = async(request,response)=>{
     try {
-        const  userId = request.userId
-        const { productId } = request.body
+        const  userId = request.userId // from auth middleware
+        const { productId } = request.body  
         
         if(!productId){
             return response.status(402).json({

@@ -10,7 +10,7 @@ const connectDB = async () => {
     } catch (error) {
         console.error(`Error: ${error.message}`);
         process.exit(1);  
-        // used to terminate the process with a failure code preventing the server from running 
+    // used to terminate the process with a failure code preventing the server from running 
     }
 }
 

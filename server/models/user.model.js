@@ -41,19 +41,19 @@ const userSchema = new mongoose.Schema({
     },
     address_details : [
         {
-            type : mongoose.Schema.ObjectId,
+            type : mongoose.Schema.ObjectId, // object id of address
             ref : 'address'
         }
     ],
     shopping_cart : [
         {
-            type : mongoose.Schema.ObjectId,
+            type : mongoose.Schema.ObjectId, // object id of cart product
             ref : 'cartProduct'
         }
     ],
     orderHistory : [
         {
-            type : mongoose.Schema.ObjectId,
+            type : mongoose.Schema.ObjectId, // object id of order product 
             ref : 'order'
         }
     ],

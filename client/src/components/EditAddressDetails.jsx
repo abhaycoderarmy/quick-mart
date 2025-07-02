@@ -52,7 +52,8 @@ const EditAddressDetails = ({close, data}) => {
         }
     }
   return (
-    <section className='bg-neutral-900/60 inset-0 z-50 fixed top-0 left-0 right-0 bottom-0  h-screen overflow-auto'>
+    <section className='bg-neutral-900/60 inset-0 z-50 fixed top-0 left-0 
+    right-0 bottom-0 h-screen overflow-auto'>
         <div className='bg-white p-4 w-full max-w-lg mt-8 mx-auto rounded'>
             <div className='flex justify-between items-center gap-4'>
                 <h2 className='font-semibold'>Edit Address</h2>
@@ -116,7 +117,8 @@ const EditAddressDetails = ({close, data}) => {
                     />
                 </div>
 
-                <button type='submit' className='bg-primary-200 w-full  py-2 font-semibold mt-4 hover:bg-primary-100'>Submit</button>
+                <button type='submit' className='bg-primary-200 w-full  
+                py-2 font-semibold mt-4 hover:bg-primary-100'>Submit</button>
             </form>
         </div>
     </section>

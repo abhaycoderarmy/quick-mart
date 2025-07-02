@@ -5,14 +5,13 @@ import { TypeAnimation } from 'react-type-animation';
 import { FaArrowLeft } from "react-icons/fa";
 import useMobile from '../hooks/useMobile';
 
-
 const Search = () => {
     const navigate = useNavigate()
     const location = useLocation()
     const [isSearchPage,setIsSearchPage] = useState(false)
     const [ isMobile ] = useMobile()
     const params = useLocation()
-    const searchText = params.search.slice(3)
+    const searchText = params.search.slice(3) // 3 is the length of "/q=xyz"
 
     useEffect(()=>{
         const isSearch = location.pathname === "/search"
@@ -31,15 +30,20 @@ const Search = () => {
     }
 
   return (
-    <div className='w-full  min-w-[300px] lg:min-w-[420px] h-11 lg:h-12 rounded-lg border-1 overflow-hidden flex items-center  text-neutral-500 bg-slate-50 group focus-within:border-yellow-400 '>
+    <div className='w-full  min-w-[300px] lg:min-w-[420px] h-11 lg:h-12 rounded-lg 
+    border-1 overflow-hidden flex items-center  text-neutral-500 bg-slate-50 group
+     focus-within:border-yellow-400 '>
         <div>
             {
                 (isMobile && isSearchPage ) ? (
-                    <Link to={"/"} className='flex justify-center items-center h-full p-2 m-1 hover:border-amber-400 group-focus-within:text-yellow-200 bg-white rounded-full shadow-md'>
+                    <Link to={"/"} className='flex justify-center items-center h-full 
+                    p-2 m-1 hover:border-amber-400 group-focus-within:text-yellow-200
+                     bg-white rounded-full shadow-md'>
                         <FaArrowLeft size={20}/>
                     </Link>
                 ) :(
-                    <button className='flex justify-center items-center h-full p-3 group-focus-within:text-yellow-200'>
+                    <button className='flex justify-center items-center h-full p-3 
+                    group-focus-within:text-yellow-200'>
                         <IoSearch size={22}/>
                     </button>
                 )
@@ -49,10 +53,11 @@ const Search = () => {
             {
                 !isSearchPage ? (
                      //not in search page
-                     <div onClick={redirectToSearchPage} className='w-full h-full flex items-center'>
+                     <div onClick={redirectToSearchPage} className='w-full h-full 
+                     flex items-center'>
                         <TypeAnimation
-                                sequence={[
-                                    // Same substring at the start will only be typed out once, initially
+                                sequence={[     
+                       // Same substring at the start will only be typed out once, initially
                                     'Search "milk"',
                                     1000, // wait 1s before replacing "Mice" with "Hamsters"
                                     'Search "bread"',

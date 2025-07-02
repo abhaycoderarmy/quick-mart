@@ -83,7 +83,8 @@ const EditSubCategory = ({close,data,fetchData}) => {
     }
 
   return (
-    <section className='fixed top-0 right-0 bottom-0 left-0 bg-neutral-800 bg-opacity-70 z-50 flex items-center justify-center p-4'>
+    <section className='fixed top-0 right-0 bottom-0 left-0 bg-neutral-800 
+    bg-opacity-70 z-50 flex items-center justify-center p-4'>
         <div className='w-full max-w-5xl bg-white p-4 rounded'>
             <div className='flex items-center justify-between gap-3'>
                 <h1 className='font-semibold'>Edit Sub Category</h1>
@@ -99,13 +100,15 @@ const EditSubCategory = ({close,data,fetchData}) => {
                             name='name'
                             value={subCategoryData.name}
                             onChange={handleChange}
-                            className='p-3 bg-blue-50 border-1 outline-none focus-within:border-yellow-200 rounded '
+                            className='p-3 bg-blue-50 border-1 outline-none     
+                             focus-within:border-yellow-200 rounded '
                         />
                     </div>
                     <div className='grid gap-1'>
                         <p>Image</p>
                         <div className='flex flex-col lg:flex-row items-center gap-3'>
-                            <div className='border h-36 w-full lg:w-36 bg-blue-50 flex items-center justify-center'>
+                            <div className='border h-36 w-full lg:w-36 bg-blue-50 
+                                flex items-center justify-center'>
                                 {
                                     !subCategoryData.image ? (
                                         <p className='text-sm text-neutral-400'>No Image</p>
@@ -119,7 +122,8 @@ const EditSubCategory = ({close,data,fetchData}) => {
                                 }
                             </div>
                             <label htmlFor='uploadSubCategoryImage'>
-                                <div className='px-4 py-1 border bg-green-500 text-white hover:bg-yellow-500 cursor-pointer  '>
+                                <div className='px-4 py-1 border bg-green-500
+                                 text-white hover:bg-yellow-500 cursor-pointer  '>
                                     Upload Image
                                 </div>
                                 <input 
@@ -140,13 +144,15 @@ const EditSubCategory = ({close,data,fetchData}) => {
                                 {
                                     subCategoryData.category.map((cat,index)=>{
                                         return(
-                                            <p key={cat._id+"selectedValue"} className='bg-white shadow-md px-1 m-1 flex items-center gap-2'>
+                                        <p key={cat._id+"selectedValue"} 
+                        className='bg-white shadow-md px-1 m-1 flex items-center gap-2'>
                                                 {cat.name}
-                                                <div className='cursor-pointer hover:text-red-600' onClick={()=>handleRemoveCategorySelected(cat._id)}>
+                        <div className='cursor-pointer hover:text-red-600' 
+                        onClick={()=>handleRemoveCategorySelected(cat._id)}>
                                                     <IoClose size={20}/>
                                                 </div>
                                             </p>
-                                        )
+                                        )   
                                     })
                                 }
                             </div>
@@ -156,7 +162,7 @@ const EditSubCategory = ({close,data,fetchData}) => {
                                 className='w-full p-2 bg-transparent outline-none border'
                                 onChange={(e)=>{
                                     const value = e.target.value
-                                    const categoryDetails = allCategory.find(el => el._id == value)
+                            const categoryDetails = allCategory.find(el => el._id == value)
                                     
                                     setSubCategoryData((preve)=>{
                                         return{
@@ -170,7 +176,8 @@ const EditSubCategory = ({close,data,fetchData}) => {
                                 {
                                     allCategory.map((category,index)=>{
                                         return(
-                                            <option value={category?._id} key={category._id+"subcategory"}>{category?.name}</option>
+                                            <option value={category?._id} 
+                            key={category._id+"subcategory"}>{category?.name}</option>
                                         )
                                     })
                                 }
@@ -180,13 +187,14 @@ const EditSubCategory = ({close,data,fetchData}) => {
 
                     <button
                         className={`px-4 py-2 border
-                            ${subCategoryData?.name && subCategoryData?.image && subCategoryData?.category[0] ? "bg-green-500 text-white hover:bg-yellow-500" : "bg-green-500 text-white hover:bg-yellow-500"}    
+        ${subCategoryData?.name && subCategoryData?.image && subCategoryData?.category[0] ? 
+                            "bg-green-500 text-white hover:bg-yellow-500" : 
+                            "bg-green-500 text-white hover:bg-yellow-500"}    
                             font-semibold
                         `}
                     >
                         Submit
-                    </button>
-                    
+                    </button>  
             </form>
         </div>
     </section>

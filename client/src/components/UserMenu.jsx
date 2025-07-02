@@ -48,7 +48,8 @@ const UserMenu = ({ close }) => {
       <div className="font-semibold ml-2"> My Account </div>
       <div className="text-sm mt-1 ml-2 flex items-center">
         <span className="max-w-52 text-ellipsis line-clamp-1">
-          {user?.name || user?.email} <span className="text-red-500 font-md">{isAdmin(user?.role) && "(Admin)"}</span>
+          {user?.name || user?.email} <span className="text-red-500 font-md">
+            {isAdmin(user?.role) && "(Admin)"}</span>
         </span>
         <Link onClick={handleClose} to={"/dashboard/profile"}>
           <HiOutlineExternalLink
@@ -120,7 +121,8 @@ const UserMenu = ({ close }) => {
         </Link>
         <button
           onClick={handleLogout}
-          className="text-center px-2 py-2 bg-red-500 rounded w-20 p-3 font-semibold text-white mt-2"
+          className="text-center px-2 py-2 bg-red-500 rounded w-20 p-3 
+          font-semibold text-white mt-2"
         >
           Logout
         </button>

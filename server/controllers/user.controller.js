@@ -493,7 +493,7 @@ export const resetPasswordController = async (req, res) => {
 export const refreshTokenController = async (req, res) => {
     try {
 
-    const refreshToken = req.cookies.refreshToken || req.header?.authorization?.split(" ")[1];
+const refreshToken = req.cookies.refreshToken || req.header?.authorization?.split(" ")[1];
 
           console.log(refreshToken);
 

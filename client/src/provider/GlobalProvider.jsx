@@ -36,6 +36,7 @@ const GlobalProvider = ({children}) => {
         }
     }
 
+
     const updateCartItem = async(id,qty)=>{
       try {
           const response = await Axios({
@@ -56,6 +57,8 @@ const GlobalProvider = ({children}) => {
         return error
       }
     }
+
+
     const deleteCartItem = async(cartId)=>{
       try {
           const response = await Axios({
@@ -110,9 +113,10 @@ const GlobalProvider = ({children}) => {
           dispatch(handleAddAddress(responseData.data))
         }
       } catch (error) {
-          // AxiosToastError(error)
+        AxiosToastError(error)
       }
     }
+    
     const fetchOrder = async()=>{
       try {
         const response = await Axios({

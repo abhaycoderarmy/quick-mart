@@ -69,7 +69,8 @@ const EditCategory = ({close, fetchData, data:CategoryData}) => {
 
     
   return (
-    <section className='fixed top-0 bottom-0 left-0 right-0 p-4 bg-neutral-800 bg-opacity-60 flex items-center justify-center'>
+    <section className='fixed top-0 bottom-0 left-0 right-0 p-4 bg-neutral-800 
+    bg-opacity-60 flex items-center justify-center'>
     <div className='bg-white max-w-xl w-full p-4 rounded'>
         <div className='flex items-center justify-between'>
             <h1 className='font-semibold'>Update Category</h1>
@@ -87,13 +88,15 @@ const EditCategory = ({close, fetchData, data:CategoryData}) => {
                     value={data.name}
                     name='name'
                     onChange={handleOnChange}
-                    className='bg-blue-50 p-2 border border-blue-100 focus-within:border-yellow-400 outline-none rounded'
+                    className='bg-blue-50 p-2 border border-blue-100
+                     focus-within:border-yellow-400 outline-none rounded'
                 />
             </div>
             <div className='grid gap-1'>
                 <p>Image</p>
                 <div className='flex gap-4 flex-col lg:flex-row items-center'>
-                    <div className='border bg-blue-50 h-36 w-full lg:w-36 flex items-center justify-center rounded'>
+                    <div className='border bg-blue-50 h-36 w-full lg:w-36 flex 
+                    items-center justify-center rounded'>
                         {
                             data.image ? (
                                 <img
@@ -118,7 +121,9 @@ const EditCategory = ({close, fetchData, data:CategoryData}) => {
                            
                         </div>
 
-                        <input disabled={!data.name} onChange={handleUploadCategoryImage} type='file' id='uploadCategoryImage' className='hidden'/>
+                        <input disabled={!data.name} 
+                        onChange={handleUploadCategoryImage}
+                        type='file' id='uploadCategoryImage' className='hidden'/>
                     </label>
                     
                 </div>
@@ -126,11 +131,9 @@ const EditCategory = ({close, fetchData, data:CategoryData}) => {
 
             <button
                 className={`
-                ${data.name && data.image ? "bg-green-500 hover:bg-yellow-400" : "bg-gray-300 "}
-                py-2    
-                font-semibold 
-                `}
-            >Update Category</button>
+                ${data.name && data.image ? 
+                "bg-green-500 hover:bg-yellow-400" : "bg-gray-300 "}
+                py-2 font-semibold`} >Update Category</button>
         </form>
     </div>
     </section>

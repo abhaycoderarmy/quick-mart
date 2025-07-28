@@ -56,7 +56,6 @@ export const getSubCategoryController = async(request,response)=>{
 }
 
 export const updateSubCategoryController = async(request,response)=>{
-    
     try {
         const { _id, name, image,category } = request.body 
 

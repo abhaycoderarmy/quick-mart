@@ -14,6 +14,7 @@ const subCategorySchema = new mongoose.Schema({
             type : mongoose.Schema.ObjectId,
             ref : "category"
         }
+        
     ]
 },{
     timestamps : true

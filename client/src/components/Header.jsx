@@ -1,5 +1,5 @@
 import { useState } from "react";
-import logo3 from "../assets/logo3.png";
+// import logo3 from "../assets/logo3.png";
 import logo2 from "../assets/logo2.png";
 import Search from "./Search";
 import { Link, useLocation, useNavigate } from "react-router-dom";
@@ -48,8 +48,8 @@ const Header = () => {
             <Link to={"/"} className="flex justify-center items-center">
               <img
                 className="ml-12 hidden lg:block"
-                src={logo3}
-                width={240}
+                src={logo2}
+                width={160}
                 height={60}
                 alt="logo"
               />
